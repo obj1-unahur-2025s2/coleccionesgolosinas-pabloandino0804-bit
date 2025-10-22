@@ -81,21 +81,19 @@ class Oblea {
 }
 
 class Chocolatin {
-  var peso 
-  const pesoPrecio
+  const property peso
+  var pesoGramo = peso
 
-  method pesoPrecio() = pesoPrecio
+  method precio() = 0.50 * peso
 
-  method precio() = 0.50 * pesoPrecio
-
-  method peso() = peso
+  method pesoGramo() = pesoGramo
   
   method sabor() = "chocolate"
   
   method contieneGluten() = true
 
   method recibirMordisco() {
-    peso = peso - 2
+    pesoGramo = pesoGramo - 2
   }
 }
 
@@ -111,6 +109,7 @@ class GolosinaBañada {
   method contieneGluten() = false
 
   method recibirMordisco() {
+    golosinaBase.recibirMordisco()
     pesoBañado = pesoBañado - 2
   }
 }
@@ -152,5 +151,46 @@ class Patilla {
 }
 
 object mariano {
+  const golosinas = []
+  method golosinas() = golosinas
 
+  method comprar(unaGolosina) {
+    golosinas.add(unaGolosina)
+  }
+
+  method desechar(unaGolosina) {
+    golosinas.remove(unaGolosina)
+  }
+
+  method cantidadDeGolosinas() = golosinas.size()
+
+  method tieneLaGolosina(unaGolosina) {
+    return golosinas.contains(unaGolosina)
+  }
+
+  method probarGolosinas() {
+    golosinas.forEach({golosina => golosina.recibirMordisco()})
+  }
+
+  method hayGolosinaSinTACC() {
+    return golosinas.any({golosina => !golosina.contieneGluten()})
+  }
+
+  method preciosCuidados() {
+    return golosinas.all({golosina => golosina.precio() <= 10})
+  }
+
+  method golosinaDeSabor(unSabor) = golosinas.find({golosina => golosina.sabor() == unSabor})
+
+  method golosinasDeSabor(unSabor) = golosinas.filter({golosina => golosina.sabor() == unSabor})
+
+  method sabores() {
+    const saboresGolosinas = #{}
+    golosinas.forEach({golosina => saboresGolosinas.add(golosina.sabor())})
+    return saboresGolosinas
+  }
+
+  method golosinaMasCara() = golosinas.max({golosina => golosina.precio()})
+
+  method pesoGolosinas() = golosinas.sum({golosina => golosina.peso()})
 }
