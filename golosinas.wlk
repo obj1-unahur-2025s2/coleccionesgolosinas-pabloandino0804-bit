@@ -100,7 +100,7 @@ class Chocolatin {
 
 class GolosinaBañada {
   var pesoBañado = 4
-  var property golosinaBase
+  var property golosinaBase 
   method precio() = golosinaBase.precio() + 2
 
   method peso() = golosinaBase.peso() + pesoBañado
