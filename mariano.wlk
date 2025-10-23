@@ -4,6 +4,7 @@ object mariano {
   const golosinas = #{}
   method golosinas() = golosinas
 
+  // Funciones
   method comprar(unaGolosina) {
     golosinas.add(unaGolosina)
   }
@@ -43,4 +44,14 @@ object mariano {
   method golosinaMasCara() = golosinas.max({golosina => golosina.precio()})
 
   method pesoGolosinas() = golosinas.sum({golosina => golosina.peso()})
+
+  // Estadisticas
+  method golosinasFaltantes(golosinasDeseadas) {
+    return golosinasDeseadas.filter({unaGolosina => !golosinas.contains(unaGolosina)})
+  }
+
+  method gustosFaltantes(gustosDeseados) {
+    const gustos = self.sabores()
+    return gustosDeseados.filter({unGusto => !gustos.contains(unGusto)})
+  } 
 }
