@@ -1,2 +1,25 @@
 import golosinas.*
 import mariano.*
+
+describe "Tests de golosinas"{
+    // todas las Golosinas
+    test "Bombon" {
+        const bombon = new Bombon()
+        assert.equals(5, bombon.precio())
+        assert.equals(15, bombon.peso())
+        assert.equals("frutilla", bombon.sabor())
+        assert.notThat(bombon.contieneGluten())
+    }
+
+    test "Alfajor" {
+        const alfajor = new Alfajor()
+        assert.equals(12, alfajor.precio())
+        assert.equals(300, alfajor.peso())
+        assert.equals("chocolate", alfajor.sabor())
+        assert.that(alfajor.contieneGluten())
+    }
+
+    test ""{
+
+    }
+}

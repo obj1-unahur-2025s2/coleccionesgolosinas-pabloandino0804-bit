@@ -1,7 +1,7 @@
 //Parte 1
 class Bombon {
   var peso = 15
-  method precio() = 15
+  method precio() = 5
 
   method peso() = peso
   
