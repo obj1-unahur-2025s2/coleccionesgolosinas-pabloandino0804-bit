@@ -82,19 +82,19 @@ class Oblea {
 }
 
 class Chocolatin {
-  const property peso
-  var pesoGramo = peso
+  const property pesoInicial
+  var peso = pesoInicial
 
-  method precio() = 0.50 * peso
+  method precio() = 0.50 * pesoInicial
 
-  method pesoGramo() = pesoGramo
+  method peso() = peso
   
   method sabor() = "chocolate"
   
   method contieneGluten() = true
 
   method recibirMordisco() {
-    pesoGramo = pesoGramo - 2
+    peso = peso - 2
   }
 }
 
