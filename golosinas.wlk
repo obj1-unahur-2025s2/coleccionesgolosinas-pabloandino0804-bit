@@ -115,7 +115,7 @@ class GolosinaBañada {
   }
 }
 
-class Patilla {
+class Pastilla {
   const peso = 5
   var gusto = "chocolate"
   var contieneGluten
