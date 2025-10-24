@@ -55,7 +55,7 @@ class Chupetin {
   method contieneGluten() = false
 
   method recibirMordisco() {
-    if (peso < 2) {
+    if (peso > 2) {
       peso = peso * 0.1
     }
   }

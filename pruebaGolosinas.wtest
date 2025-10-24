@@ -80,13 +80,32 @@ describe "Tests de Golosinas"{
         assert.that(tuttiFrutti.contieneGluten())
     }
 
-    test "pastilla bañada" {
-        const tuttiFrutti = new PastillaTuttiFrutti(contieneGluten = false)
-        const bañadoPastilla = new GolosinaBañada(golosinaBase = tuttiFrutti)
-        assert.equals(9, bañadoPastilla.precio())
-        assert.equals(9, bañadoPastilla.peso())
-        assert.equals("frutilla", bañadoPastilla.sabor())
-        assert.notThat(bañadoPastilla.contieneGluten())
+    // Golosinas bañadas
+    test "Pastilla bañada" {
+        const tuttiFrutti = new PastillaTuttiFrutti(contieneGluten = true)
+        const pastillaBañada = new GolosinaBañada(golosinaBase = tuttiFrutti)
+        assert.equals(12, pastillaBañada.precio())
+        assert.equals(9, pastillaBañada.peso())
+        assert.equals("frutilla", pastillaBañada.sabor())
+        assert.that(pastillaBañada.contieneGluten())
+    }
+
+    test "Chococolate Bañado" {
+        const chocolatin = new Chocolatin(pesoInicial = 50)
+        const chocoBañado = new GolosinaBañada(golosinaBase = chocolatin)
+        assert.equals(29, chocoBañado.precio())
+        assert.equals(52, chocoBañado.peso())
+        assert.equals("chocolate", chocoBañado.sabor())
+        assert.that(chocoBañado.contieneGluten())
+    }
+
+    test "Chupetin Bañado" {
+        const chupetin = new Chupetin()
+        const chupetinBañado = new GolosinaBañada(golosinaBase = chocolatin)
+        assert.equals(9, chupetinBañado.precio())
+        assert.equals(4, chupetinBañado.peso())
+        assert.equals("naranja", chupetinBañado.sabor())
+        assert.notThat(chupetinBañado.contieneGluten())
     }
 }
 
