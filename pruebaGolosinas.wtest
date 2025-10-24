@@ -81,7 +81,12 @@ describe "Tests de Golosinas"{
     }
 
     test "pastilla bañada" {
-
+        const tuttiFrutti = new PastillaTuttiFrutti(contieneGluten = false)
+        const bañadoPastilla = new GolosinaBañada(golosinaBase = tuttiFrutti)
+        assert.equals(9, bañadoPastilla.precio())
+        assert.equals(9, bañadoPastilla.peso())
+        assert.equals("frutilla", bañadoPastilla.sabor())
+        assert.notThat(bañadoPastilla.contieneGluten())
     }
 }
 
