@@ -1,7 +1,7 @@
 import golosinas.*
 import mariano.*
 
-describe "Tests de golosinas"{
+describe "Tests de Golosinas"{
     // todas las Golosinas
     test "Bombon" {
         const bombon = new Bombon()
@@ -19,7 +19,74 @@ describe "Tests de golosinas"{
         assert.that(alfajor.contieneGluten())
     }
 
-    test ""{
+    test "Caramelo" {
+        const caramelo = new Caramelo()
+        assert.equals(1, caramelo.precio())
+        assert.equals(5, caramelo.peso())
+        assert.equals("frutilla", caramelo.sabor())
+        assert.notThat(caramelo.contieneGluten())
+    }
+
+    test "Chupetin"{
+        const chupetin = new Chupetin()
+        assert.equals(2, chupetin.precio())
+        assert.equals(7, chupetin.peso())
+        assert.equals("naranja", chupetin.sabor())
+        assert.notThat(chupetin.contieneGluten())
+    }
+
+    test "Oblea" {
+        const obleaNueva = new Oblea()
+        assert.equals(5, obleaNueva.precio())
+        assert.equals(250, obleaNueva.peso())
+        assert.equals("vainilla", obleaNueva.sabor())
+        assert.that(obleaNueva.contieneGluten())
+        obleaNueva.recibirMordisco()
+        obleaNueva.recibirMordisco()
+        obleaNueva.recibirMordisco()
+        assert.notEquals(250, obleaNueva.peso())
+    }
+
+    test "Chocolate 1" {
+        const chocolatin = new Chocolatin(pesoInicial = 40)
+        assert.equals(20, chocolatin.precio())
+        assert.equals(40, chocolatin.peso())
+        assert.equals("chocolate", chocolatin.sabor())
+        assert.that(chocolatin.contieneGluten())
+    }
+
+    test "Chocolate 2" {
+        const chocolatin = new Chocolatin(pesoInicial = 100)
+        assert.equals(50, chocolatin.precio())
+        assert.equals(100, chocolatin.peso())
+        assert.equals("chocolate", chocolatin.sabor())
+        assert.that(chocolatin.contieneGluten())
+
+    }
+
+    test "Tutti-Frutti 1" {
+        const tuttiFrutti = new PastillaTuttiFrutti(contieneGluten = false)
+        assert.equals(7, tuttiFrutti.precio())
+        assert.equals(5, tuttiFrutti.peso())
+        assert.equals("frutilla", tuttiFrutti.sabor())
+        assert.notThat(tuttiFrutti.contieneGluten())
+    }
+
+    test "Tutti-Frutti 2" {
+        const tuttiFrutti = new PastillaTuttiFrutti(contieneGluten = true)
+        assert.equals(10, tuttiFrutti.precio())
+        assert.equals(5, tuttiFrutti.peso())
+        assert.equals("frutilla", tuttiFrutti.sabor())
+        assert.that(tuttiFrutti.contieneGluten())
+    }
+
+    test "pastilla bañada" {
+
+    }
+}
+
+describe "Tests de Mariano"{
+    test "" {
 
     }
 }

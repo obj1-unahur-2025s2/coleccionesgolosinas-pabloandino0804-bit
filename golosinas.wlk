@@ -69,7 +69,7 @@ class Oblea {
   
   method sabor() = "vainilla"
   
-  method contieneGluten() = false
+  method contieneGluten() = true
 
   method recibirMordisco() {
     if (peso > 70) {
@@ -115,18 +115,10 @@ class GolosinaBañada {
   }
 }
 
-class Pastilla {
+class PastillaTuttiFrutti {
   const peso = 5
-  var gusto = "chocolate"
-  var contieneGluten
-
-  method tieneGluten() {
-    contieneGluten = true
-  }
-
-  method noTieneGluten() {
-    contieneGluten = false
-  }
+  var gusto = "frutilla"
+  const property contieneGluten
   
   method precio() {
     return if (not contieneGluten) 7 else 10
@@ -135,8 +127,6 @@ class Pastilla {
   method peso() = peso
 
   method gusto() = gusto
-
-  method contieneGluten() = contieneGluten
 
   method recibirMordisco() {
     if (gusto == "frutilla") {

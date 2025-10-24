@@ -2,11 +2,14 @@
 import golosinas.*
 object mariano {
   const golosinas = #{}
+  const golosinasQuCompro = #{}
   method golosinas() = golosinas
 
+  method golosinasQuCompro() = golosinasQuCompro
   // Funciones
   method comprar(unaGolosina) {
     golosinas.add(unaGolosina)
+    golosinasQuCompro.add(unaGolosina)
   }
 
   method desechar(unaGolosina) {
@@ -53,5 +56,15 @@ object mariano {
   method gustosFaltantes(gustosDeseados) {
     const gustos = self.sabores()
     return gustosDeseados.filter({unGusto => !gustos.contains(unGusto)})
-  } 
+  }
+
+  method gastoEn(sabor) = self.golosinasDeSabor(sabor).sum({unaGolosina => unaGolosina.precio()})
+
+  method saborMasPopular(){
+
+  }
+
+  method saborMasPesado() = golosinas.max({golosina => golosina.peso()}).sabor()
+
+  method comproYDesecho(golosina) = golosinasQuCompro.contains(golosina) and !golosinas.contains(golosina)
 }
