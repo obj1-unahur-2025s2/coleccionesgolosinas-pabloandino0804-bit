@@ -126,7 +126,7 @@ class PastillaTuttiFrutti {
 
   method peso() = peso
 
-  method gusto() = gusto
+  method sabor() = gusto
 
   method recibirMordisco() {
     if (gusto == "frutilla") {

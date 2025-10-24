@@ -61,7 +61,6 @@ object mariano {
   method gastoEn(sabor) = self.golosinasDeSabor(sabor).sum({unaGolosina => unaGolosina.precio()})
 
   method saborMasPopular(){
-
   }
 
   method saborMasPesado() = golosinas.max({golosina => golosina.peso()}).sabor()
