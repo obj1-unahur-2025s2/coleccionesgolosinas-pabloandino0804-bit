@@ -6,6 +6,7 @@ object mariano {
   method golosinas() = golosinas
 
   method golosinasQuCompro() = golosinasQuCompro
+  
   // Funciones
   method comprar(unaGolosina) {
     golosinas.add(unaGolosina)
@@ -39,10 +40,8 @@ object mariano {
   method golosinasDeSabor(unSabor) = golosinas.filter({golosina => golosina.sabor() == unSabor})
 
   method sabores() {
-    const saboresGolosinas = #{}
-    golosinas.forEach({golosina => saboresGolosinas.add(golosina.sabor())})
-    return saboresGolosinas
-  }
+		return golosinas.map({golosina => golosina.sabor()}).asSet()
+	}
 
   method golosinaMasCara() = golosinas.max({golosina => golosina.precio()})
 
@@ -50,14 +49,18 @@ object mariano {
 
   // Estadisticas
   method golosinasFaltantes(golosinasDeseadas) {
-    return golosinasDeseadas.filter({unaGolosina => !golosinas.contains(unaGolosina)})
-  }
+		return golosinasDeseadas.difference(golosinas)	
+	}
 
   method gustosFaltantes(gustosDeseados) {
-    const gustos = self.sabores()
-    return gustosDeseados.filter({unGusto => !gustos.contains(unGusto)})
-  }
+		return gustosDeseados.filter({gustoDeseado => !self.tieneGolosinaDeSabor(gustoDeseado)})	
+	}
 
+  method tieneGolosinaDeSabor(_sabor) {
+		return golosinas.any({_golosina => _golosina.sabor() == _sabor})
+	}
+
+  // Funciones Extras
   method gastoEn(sabor) = self.golosinasDeSabor(sabor).sum({unaGolosina => unaGolosina.precio()})
 
   method saborMasPopular(){

@@ -148,8 +148,26 @@ describe "Tests de Golosinas"{
     }
 }
 
-describe "Tests de Mariano"{
-    test "" {
+describe "Tests de mariano" {
+    method initialize() {
+        const chocolatin = new Chocolatin(pesoInicial = 50)
+        const caramelo = new Caramelo()
+        const bombon = new Bombon()
+        mariano.comprar(chocolatin)
+        mariano.comprar(caramelo)
+        mariano.comprar(bombon)
+    }
 
+    test "dulces que faltan" {
+        const chocolatin = new Chocolatin(pesoInicial = 50)
+        const alfajor = new Alfajor()
+        const bombon = new Bombon()
+        const chupetin = new Chupetin()
+        assert.equals(2, mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin}).size())
+        assert.equals(#{alfajor, chupetin}, mariano.golosinasFaltantes(#{alfajor, bombon, chocolatin, chupetin}))
+    }
+
+    test "Sabores que faltan" {
+        assert.equals(#{"melón", "vainilla"}, mariano.gustosFaltantes(#{"melón", "chocolate", "frutilla" , "vainilla"}))
     }
 }
