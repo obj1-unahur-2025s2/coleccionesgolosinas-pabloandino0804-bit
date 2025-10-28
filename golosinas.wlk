@@ -56,7 +56,7 @@ class Chupetin {
 
   method recibirMordisco() {
     if (peso > 2) {
-      peso = peso * 0.1
+      peso = peso * 0.9
     }
   }
 }
